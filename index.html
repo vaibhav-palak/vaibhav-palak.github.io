@@ -1569,7 +1569,7 @@ document.getElementById("openInvite")
     music.play();
 });
 
-    const music = document.getElementById("bgmusic");
+     music = document.getElementById("bgmusic");
 
 music.addEventListener("canplaythrough", () => {
     console.log("Audio loaded");
@@ -1579,6 +1579,12 @@ music.addEventListener("canplaythrough", () => {
 music.addEventListener("error", (e) => {
     console.log("Audio error", e);
     alert("Audio error");
+});
+
+    document.getElementById("seal").addEventListener("click", function () {
+    music.play()
+        .then(() => console.log("playing"))
+        .catch(err => console.log(err));
 });
     
 </script>
