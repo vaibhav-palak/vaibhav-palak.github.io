@@ -1568,6 +1568,18 @@ document.getElementById("openInvite")
 .addEventListener("click", () => {
     music.play();
 });
+
+    const music = document.getElementById("bgmusic");
+
+music.addEventListener("canplaythrough", () => {
+    console.log("Audio loaded");
+    alert("Audio loaded");
+});
+
+music.addEventListener("error", (e) => {
+    console.log("Audio error", e);
+    alert("Audio error");
+});
     
 </script>
 
