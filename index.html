@@ -11,17 +11,30 @@
 
 <style>
 
+html.cover-active,
+body.cover-active{
+    overflow:hidden;
+    height:100vh;
+    font-family:'Cormorant Garamond', serif;
+    background:#faf7ee;
+    margin:0;
+    padding:0;
+}
+
+/*body.cover-active{
+    overflow:hidden;
+    height:100%;
+    overflow-x:hidden;
+}*/
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-body{
-    overflow-x:hidden;
-    font-family:'Cormorant Garamond', serif;
-    background:#faf7ee;
-}
+/*body{
+}*/
 
 /* =========================
    HERO
@@ -1134,12 +1147,9 @@ body{
 
 /* ENVELOPE */
 .envelope{
-  /*  position:relative;
-    width:340px;
-    height:520px;
+ 
     overflow:hidden;
-    */
-        position:relative;
+         position:relative;
     background:#b7c1ae;
 
     box-shadow:0 30px 80px rgba(0,0,0,0.25);
@@ -1280,9 +1290,10 @@ body{
 
 /* MAIN CONTENT INITIAL */
 #mainContent{
-    opacity:0;
+    /*opacity:0;
     transform:scale(1.05);
-    filter:blur(10px);
+    filter:blur(10px);*/
+    display:none;
 }
 
 /* REVEAL */
@@ -1303,7 +1314,7 @@ body{
 </style>
 </head>
 
-<body>
+<body class="cover-active">
     <audio id="bgmusic" loop preload="auto">
         <source src="wedding.mp3" type="audio/mpeg">
     </audio>
@@ -1623,6 +1634,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     seal.addEventListener("click", () => {
 
+        // document.body.classList.remove("cover-active");
         if (opened) return;   // prevent double click
         opened = true;
 
@@ -1632,12 +1644,18 @@ document.addEventListener("DOMContentLoaded", () => {
         // 2. reveal main page
         setTimeout(() => {
             main.classList.add("show");
+            cover.style.display = "none";
+            main.style.display = "block";
+            main.classList.add("show");
+
+            document.body.classList.remove("cover-active");
+            document.documentElement.classList.remove("cover-active");
+            document.body.classList.remove("cover-active");
         }, 800);
 
         // 3. remove cover safely
-        setTimeout(() => {
-            cover.style.display = "none";
-        }, 1600);
+        // setTimeout(() => {
+        // }, 1600);
 
     });
 
