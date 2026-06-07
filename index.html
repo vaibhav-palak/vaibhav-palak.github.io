@@ -675,38 +675,145 @@ body{
 
 ////////////////////////////////////////////////////////////
 
-
-.wedding-section{
-
+.wedding-day-section{
+    position:relative;
+    width:100%;
     min-height:100vh;
+    overflow:hidden;
+}
+
+.wedding-day-bg{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.wedding-day-overlay{
+    position:absolute;
+    inset:0;
 
     background:
     linear-gradient(
-    to bottom,
-    #eef3ea,
-    #f7f8f3
+        rgba(0,0,0,.15),
+        rgba(0,0,0,.25)
     );
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    z-index:1;
+}
 
-    padding:80px 8%;
+.wedding-day-content{
+    position:absolute;
+
+    top:38%;
+    left:50%;
+
+    /*transform:translate(-50%,-50%);*/
+    transform:translateX(-50%);
+
+    width:90%;
+    max-width:900px;
+
+    text-align:center;
+
+    color:darkred;
+    font-weight: bolder;
+    z-index:2;
+}
+
+.event-label{
+    font-size:42px;
+    margin-bottom:15px;
+    font-family: 'Great Vibes', cursive;
+}
+
+.wedding-day-content h2{
+    font-size:58px;
+    font-weight:600;
+
+    margin-bottom:30px;
+
+    font-family:'Cormorant Garamond', serif;
+    font-weight: bolder;
+}
+
+.address{
+    font-size:28px;
+    margin-bottom:30px;
+    font-weight: bolder;
+}
+
+.schedule p{
+    font-size:20px;
+    /*line-height:2;*/
+}
+
+.venue-name1{
+    margin-top:20px;
+    font-size:24px !important;
+    font-weight:600;
 }
 
 
-.wedding-bg{
-    /*position:absolute;*/
-    /*inset:0;*/
+@media(max-width:768px){
 
-    width:100%;
-    height:100%;
+    .event-label{
+        font-size:42px;
+        /*margin-bottom:15px;*/
+        font-family: 'Great Vibes', cursive;
+    }
 
-    object-fit:cover;
-    /*object-position:center center;*/
-    object-position:50% 100%;
-    animation:glow 4s ease-in-out infinite;
+    .wedding-day-section{
+        position:relative;
+    }
+    /*.wedding-day-section{
+        min-height:70vh;
+    }
+*/
+    .wedding-day-bg{
+        min-height:70vh;
+        object-fit:cover;
+        object-position:center center;
+    }
+    .wedding-day-content{
+        position:absolute;
+
+        top:15%;
+        left:50%;
+
+        transform:translateX(-50%);
+
+        width:90%;
+    }
+
+    /*.wedding-day-content{
+        width:92%;
+    }
+*/
+  
+
+    .wedding-day-content h2{
+        font-size:20px;
+        line-height:1.3;
+        margin-bottom:15px;
+    }
+
+    .address{
+        font-size:20px;
+        line-height:1.5;
+        margin-bottom:20px;
+    }
+
+    .schedule p{
+        font-size:20px;
+        /*line-height:1.8;*/
+    }
+
+    .venue-name1{
+        font-size:22px !important;
+    }
 }
+
 
 
 //////////////////////////////////////////////////////////
@@ -1161,266 +1268,180 @@ body{
 </head>
 
 <body>
-<audio id="bgmusic" loop preload="auto">
-    <source src="wedding.mp3" type="audio/mpeg">
-</audio>
-<div id="coverScreen">
-
-    <div class="envelope">
-
-        <div class="flap-top"></div>
-        <div class="flap-left"></div>
-        <div class="flap-right"></div>
-
-        <div class="content">
-            <h2>You're Invited</h2>
-            <p>Tap the seal to open</p>
+    <audio id="bgmusic" loop preload="auto">
+        <source src="wedding.mp3" type="audio/mpeg">
+    </audio>
+    <div id="coverScreen">
+        <div class="envelope">
+            <div class="flap-top"></div>
+            <div class="flap-left"></div>
+            <div class="flap-right"></div>
+            <div class="content">
+                <h2>You're Invited</h2>
+                <p>Tap the seal to open</p>
+            </div>
+            <button id="openInvite">
+                <div class="seal" id="sealBtn"></div>
+            </button>
         </div>
-
-        <button id="openInvite">
-            <div class="seal" id="sealBtn"></div>
-</button>
-    
 
     </div>
 
-</div>
+    <div id="mainContent">
+        <section class="hero">
+            <img src="1.png" class="hero-bg" alt="Wedding Background">
+            <div class="overlay"></div>
+            <div id="flowers"></div>
+            <!-- DESKTOP CONTENT -->
+            <div class="desktop-content">
+                <img src="ganeshji.png" class="ganesh">
+                <p class="invite">|| Shree Ganeshaye Namah ||</p>
+                <h1>Vaibhav</h1>
+                <div class="and">&</div>
+                <h1>Palak</h1>
+                <p class="date">22 June 2026</p>
+            </div>
 
-<!-- YOUR FULL SITE -->
-<div id="mainContent">
+            <!-- MOBILE CONTENT -->
+            <div class="mobile-content">
+                <p>With the blessings Of</p>
+                <h3>Lt. Smt. Kusum Aggarwal & Lt. Shri. H.P. Aggarwal</h3>
+                <p>You are cordially invited to attend the wedding of</p>
+                <h1>Vaibhav</h1>
+                <h3>Son of Mrs. Reima & Mr. Sanjay Aggarwal</h3>
+                <div class="with">WITH</div>
+                <h1>Palak</h1>
+                <p>Daughter of Smt. Mona & Shri Pankaj Gupta</p>
+                <div class="date-block">22nd June 2026</div>
+                <div class="at">at</div>
+                <div class="venue">The Grandeur By Lavanya Banquet</div>
+            </div>
+        </section>
 
-<section class="hero">
+        <section class="event-section">
+            <div class="event-container">
+                <div class="event-details">
+                    <p class="save-date">With immense joy and love</p>
+                    <br>
+                    <h1 class="couple-name" style="text-align: center;">
+                        Vaibhav & Palak
+                    </h1>
+                    <center>
+                        <button class="scratch-btn"><i>22nd June 2026</i></button>
+                    </center>
+                    <div class="countdown">
+                        <div class="time-box">
+                            <span id="days">00</span>
+                            <small>Days</small>
+                        </div>
+                        <div class="time-box">
+                            <span id="hours">00</span>
+                            <small>Hours</small>
+                        </div>
+                        <div class="time-box">
+                            <span id="minutes">00</span>
+                            <small>Minutes</small>
+                        </div>
+                        <div class="time-box">
+                            <span id="seconds">00</span>
+                            <small>Seconds</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="couple-image">
+                    <img src="couple.png" alt="Couple">
+                </div>
+            </div>
+        </section>
 
-    <img src="1.png" class="hero-bg" alt="Wedding Background">
+        <section class="wedding-day-section">
 
-    <div class="overlay"></div>
+    <img src="weddingbg1.png" class="wedding-day-bg" alt="Wedding Day">
 
-    <div id="flowers"></div>
+    <div class="wedding-day-overlay"></div>
 
-    <!-- DESKTOP CONTENT -->
+    <div class="wedding-day-content">
+        <p class="event-label">Wedding</p>
 
-    <div class="desktop-content">
+        <!-- <h2>Awaiting for your Noble Presence</h2> -->
 
-        <img src="ganeshji.png" class="ganesh">
 
-        <p class="invite">
-            || Shree Ganeshaye Namah ||
-        </p>
+        <div class="schedule">
 
-        <h1>Vaibhav</h1>
-
-        <div class="and">&</div>
-
-        <h1>Palak</h1>
-
-        <p class="date">
-            22 June 2026
-        </p>
-
-    </div>
-
-    <!-- MOBILE CONTENT -->
-
-    <div class="mobile-content">
-
-        <p>With the blessings Of</p>
-
-        <h3>Lt. Smt. Kusum Aggarwal & Lt. Shri. H.P. Aggarwal</h3>
-
-        <h3>Mrs. Reima & Mr. Sanjay Aggarwal</h3>
-
-        <p>
-            Cordially invite you to attend the
-        </p>
-
-        <p>Wedding of their son</p>
-
-        <h1>Vaibhav</h1>
-
-        <div class="with">WITH</div>
-
-        <h1>Palak</h1>
-
-        <p>
-            Daughter of Smt. Mona & Shri Pankaj Gupta
-        </p>
-
-        <div class="date-block">
-            22nd June 2026
-        </div>
-
-        <div class="at">
-            at
-        </div>
-
-        <div class="venue">
-            The Grandeur By Lavanya Banquet
+            <p>
+        <b>
+                05:00 PM - Sehrabandhi and Ghurcharhi
+                <br>
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-12 h-12 text-[#c8a882] mx-auto"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                 D4-904, Kingsbury Apartment
+                <br>TDI, Kundli-131030
+        </b>
+            </p>
             <br>
-            Ground Floor
-        </div>
+            <p>06:30 PM - Departure of Baraat</p>
+            <br>
+            <p>07:30 PM - Reassembly of Baraat
+                <br>
+                <span class="venue-name1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-12 h-12 text-[#c8a882] mx-auto"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                 The Grandeur by Lavanya Banquet</span>
+            </p>
 
+                
+
+        </div>
     </div>
 
 </section>
+        
+        <section class="venue-section">
+        <!-- <img src="venue.png" class="venue-bg" alt="Venue Background"> -->
+            <div class="venue-content">
+                <div class="location-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-12 h-12 text-[#c8a882] mx-auto"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+                <h2>Where We Celebrate</h2>
+                <p>
+                    <span class="venue-name">The Grandeur by Lavanya Banquet</span>
+                    <br>
+                    <span class="venue-address">Ground Floor<br>A-15, Mahatma Gandhi Rd, Block A, Wazirpur Industrial Area, Ashok Vihar, Delhi, 110052</span>
+                </p>
 
-<section class="event-section">
-  
-            
-    <div class="event-container">
-
-        <div class="event-details">
-
-           <p class="save-date" >
-            With immense joy and love
-        </p>
-        <br>
-<h1 class="couple-name" style="text-align: center;">
-            Vaibhav & Palak
-        </h1>
-
-        <center>
-            
-        <button class="scratch-btn">
-            22nd June 2026
-        </button>
-        </center>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.649851424791!2d77.15737397436517!3d28.700119081010286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d02182dfe5e61%3A0x16b31bdc3d01eddd!2sThe%20Grandeur%20by%20Lavanya%20banquet!5e0!3m2!1sen!2sin!4v1780766305374!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <a href="https://maps.app.goo.gl/wXAVEQz4UsGnFNeEA" target="_blank" class="direction-btn">Get Directions</a>
+            </div>
+        </section>
 
 
-       <div class="countdown">
+        <section class="family-section">
+            <div class="family-header">
+                <p style="text-align: center;">WITH LOVE</p>
+                <h2 style="text-align: center;">The Families</h2>
+            </div>
+            <div class="family-container">
+                <div class="family-card">
+                    <h3>Groom's Family</h3>
+                    <div class="divider"></div>
+                    <p>Mrs. Reima & Sanjay Aggarwal</p>
+                    <p>Dr. Nidhi & Dr. Akshay Rai</p>
+                </div>
+                <div class="family-card">
+                    <h3>Bride's Family</h3>
+                    <div class="divider"></div>
+                    <p>Mrs. Mona & Pankaj Gupta</p>
+                    <p>Ms. Disha Gupta</p>
+                </div>
+            </div>
+        </section>
 
-    <div class="time-box">
-        <span id="days">00</span>
-        <small>Days</small>
+
+        <footer class="wedding-footer">
+            <h2>Vaibhav & Palak</h2>
+            <p style="text-align: center;">🌷<br>22 June 2026<br>#VgotThisPal</p>
+        </footer>
     </div>
-
-    <div class="time-box">
-        <span id="hours">00</span>
-        <small>Hours</small>
-    </div>
-
-    <div class="time-box">
-        <span id="minutes">00</span>
-        <small>Minutes</small>
-    </div>
-
-    <div class="time-box">
-        <span id="seconds">00</span>
-        <small>Seconds</small>
-    </div>
-
-</div>
-        </div>
-
-        <div class="couple-image">
-
-            <img src="couple.png" alt="Couple">
-
-        </div>
-
-    </div>
-</div>
-
-
-
-
-
-</section>
-
-<section class="wedding-section" style="display: none;">
-    
-    <img src="weddingbg.jpeg" class="wedding-bg" alt="Wedding Background">
-
-    <div class="overlay"></div>
-    
-
-</section>
-
-
-    
-
-    <section class="venue-section">
-
-
-    <!-- <img src="venue.png" class="venue-bg" alt="Venue Background"> -->
-    <div class="venue-content">
-
-        <div class="location-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-12 h-12 text-[#c8a882] mx-auto"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
-        </div>
-
-        <h2>Where We Celebrate</h2>
-
-        <p>
-        <span class="venue-name">The Grandeur by Lavanya Banquet</span>
-        <br>
-        <span class="venue-address">Ground Floor<br>A-15, Mahatma Gandhi Rd, Block A, Wazirpur Industrial Area, Ashok Vihar, Delhi, 110052</span>
-
-        </p>
-
-        <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.649851424791!2d77.15737397436517!3d28.700119081010286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d02182dfe5e61%3A0x16b31bdc3d01eddd!2sThe%20Grandeur%20by%20Lavanya%20banquet!5e0!3m2!1sen!2sin!4v1780766305374!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-
-        <a href="https://maps.app.goo.gl/wXAVEQz4UsGnFNeEA" target="_blank" class="direction-btn">Get Directions
-        </a>
-
-    </div>
-
-
-</section>
-
-<section class="family-section">
-
-    <div class="family-header">
-
-        <p style="text-align: center;">WITH LOVE</p>
-
-        <h2 style="text-align: center;">The Families</h2>
-
-    </div>
-
-    <div class="family-container">
-
-        <div class="family-card">
-
-            <h3>Groom's Family</h3>
-
-            <div class="divider"></div>
-
-            <p>Mrs. Reima & Sanjay Aggarwal</p>
-            <p>Dr. Nidhi & Dr. Akshay Rai</p>
-
-        </div>
-
-        <div class="family-card">
-
-            <h3>Bride's Family</h3>
-
-            <div class="divider"></div>
-
-            <p>Mrs. Mona & Pankaj Gupta</p>
-            <p>Ms. Disha Gupta</p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<footer class="wedding-footer">
-
-    <h2>
-        Vaibhav & Palak
-    </h2>
-    <p style="text-align: center;">
-        🌷
-        <br>
-        22 June 2026
-        <br>
-    #VgotThisPal</p>
-
-</footer>
-</div>
 
 
 
