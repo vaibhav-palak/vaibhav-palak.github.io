@@ -11,30 +11,17 @@
 
 <style>
 
-html.cover-active,
-body.cover-active{
-    overflow:hidden;
-    height:100vh;
-    font-family:'Cormorant Garamond', serif;
-    background:#faf7ee;
-    margin:0;
-    padding:0;
-}
-
-/*body.cover-active{
-    overflow:hidden;
-    height:100%;
-    overflow-x:hidden;
-}*/
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-/*body{
-}*/
+body{
+    overflow-x:hidden;
+    font-family:'Cormorant Garamond', serif;
+    background:#faf7ee;
+}
 
 /* =========================
    HERO
@@ -1147,14 +1134,17 @@ body.cover-active{
 
 /* ENVELOPE */
 .envelope{
- 
+  /*  position:relative;
+    width:340px;
+    height:520px;
     overflow:hidden;
-         position:relative;
+    */
+        position:relative;
     background:#b7c1ae;
 
     box-shadow:0 30px 80px rgba(0,0,0,0.25);
     width:340px;
-    /* height:520px; */
+    height:520px;
     height:100vh;
 
     margin:auto;
@@ -1291,10 +1281,12 @@ body.cover-active{
 
 /* MAIN CONTENT INITIAL */
 #mainContent{
-    /*opacity:0;
+/*    opacity:0;
     transform:scale(1.05);
     filter:blur(10px);*/
+
     display:none;
+
 }
 
 /* REVEAL */
@@ -1315,7 +1307,7 @@ body.cover-active{
 </style>
 </head>
 
-<body class="cover-active">
+<body>
     <audio id="bgmusic" loop preload="auto">
         <source src="wedding.mp3" type="audio/mpeg">
     </audio>
@@ -1635,7 +1627,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     seal.addEventListener("click", () => {
 
-        // document.body.classList.remove("cover-active");
         if (opened) return;   // prevent double click
         opened = true;
 
@@ -1648,10 +1639,6 @@ document.addEventListener("DOMContentLoaded", () => {
             cover.style.display = "none";
             main.style.display = "block";
             main.classList.add("show");
-
-            document.body.classList.remove("cover-active");
-            document.documentElement.classList.remove("cover-active");
-            document.body.classList.remove("cover-active");
         }, 800);
 
         // 3. remove cover safely
