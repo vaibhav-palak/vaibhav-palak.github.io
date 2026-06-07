@@ -211,7 +211,7 @@ body{
 
     position:absolute;
 
-    top:15%;
+    top:3%;
     left:50%;
 
     transform:translateX(-50%);
@@ -693,11 +693,7 @@ body{
     position:absolute;
     inset:0;
 
-    background:
-    linear-gradient(
-        rgba(0,0,0,.15),
-        rgba(0,0,0,.25)
-    );
+
 
     z-index:1;
 }
@@ -1205,7 +1201,7 @@ body{
 }
 
 /* SEAL */
-.seal{
+/*.seal{
     position:absolute;
     top:65%;
     left:50%;
@@ -1223,6 +1219,46 @@ body{
         0 10px 25px rgba(0,0,0,0.2);
 
     transition:0.3s ease;
+}*/
+
+.seal{
+    position:absolute;
+    top:65%;
+    left:50%;
+    transform:translate(-50%,-50%);
+
+    width:95px;
+    height:95px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    /*font-size:12px;*/
+    /*font-weight:600;*/
+    color:darkgreen;
+    line-height:1.2;
+
+    cursor:pointer;
+
+    background:radial-gradient(circle at 30% 30%, #fff3ea, #e4d2c2);
+
+    box-shadow:
+        inset -6px -6px 10px rgba(0,0,0,0.1),
+        inset 6px 6px 10px rgba(255,255,255,0.6),
+        0 10px 25px rgba(0,0,0,0.2);
+
+    transition:0.3s ease;
+
+    font-family:'Cormorant Garamond', serif;
+    font-size:14px;
+    font-weight:bolder;
+    letter-spacing:1px;
+    text-transform:uppercase;
 }
 
 .seal:active{
@@ -1281,7 +1317,7 @@ body{
                 <p>Tap the seal to open</p>
             </div>
             <button id="openInvite">
-                <div class="seal" id="sealBtn"></div>
+                <div class="seal" id="sealBtn" onclick="changeText()">Click<br>to Open</div>
             </button>
         </div>
 
@@ -1304,6 +1340,8 @@ body{
 
             <!-- MOBILE CONTENT -->
             <div class="mobile-content">
+                <img src="ganeshji.png" class="ganesh">
+                <p class="invite">|| Shree Ganeshaye Namah ||</p>
                 <p>With the blessings Of</p>
                 <h3>Lt. Smt. Kusum Aggarwal & Lt. Shri. H.P. Aggarwal</h3>
                 <p>You are cordially invited to attend the wedding of</p>
@@ -1327,7 +1365,7 @@ body{
                         Vaibhav & Palak
                     </h1>
                     <center>
-                        <button class="scratch-btn"><i>22nd June 2026</i></button>
+                        <button class="scratch-btn"><i>June 22, 2026</i></button>
                     </center>
                     <div class="countdown">
                         <div class="time-box">
@@ -1353,6 +1391,24 @@ body{
                 </div>
             </div>
         </section>
+
+
+<!--         <section class="photo-section">
+            <img src="event1.jpg" alt="Event 1">
+        </section>
+
+        <section class="photo-section">
+            <img src="event2.jpg" alt="Event 2">
+        </section>
+
+        <section class="photo-section">
+            <img src="event3.jpg" alt="Event 3">
+        </section>
+
+ -->
+
+
+
 
         <section class="wedding-day-section">
 
@@ -1438,8 +1494,9 @@ body{
 
 
         <footer class="wedding-footer">
-            <h2>Vaibhav & Palak</h2>
-            <p style="text-align: center;">🌷<br>22 June 2026<br>#VgotThisPal</p>
+            <!-- <h2>Vaibhav & Palak</h2> -->
+            <!-- <p style="text-align: center;">🌷<br>22 June 2026<br>#VgotThisPal</p> -->
+            <p style="text-align: center;"><i>#VgotThisPal</i></p>
         </footer>
     </div>
 
@@ -1536,7 +1593,7 @@ function startMusic(){
         const fade = setInterval(() => {
             if(vol < 1){
                 vol += 0.05;
-                music.volume = vol;
+                // music.volume = vol;
             } else {
                 clearInterval(fade);
             }
@@ -1633,5 +1690,11 @@ document.getElementById("openInvite")
     
 </script>
 
+<script>
+    function changeText() {
+        document.getElementById('sealBtn').innerHTML = ''; 
+        document.getElementById('sealBtn').innerHTML = 'OPENING'; 
+    }
+</script>
 </body>
 </html>
