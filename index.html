@@ -1569,23 +1569,35 @@ document.getElementById("openInvite")
     music.play();
 });
 
-     music = document.getElementById("bgmusic");
+    const weddingAudio = new Audio(https://vaibhav-palak.github.io/wedding.mp3);
+    weddingAudio.preload = 'auto';
+    weddingAudio.load();
 
-music.addEventListener("canplaythrough", () => {
-    console.log("Audio loaded");
-    alert("Audio loaded");
-});
-
-music.addEventListener("error", (e) => {
-    console.log("Audio error", e);
-    alert("Audio error");
-});
-
+    
     document.getElementById("seal").addEventListener("click", function () {
-    music.play()
+    weddingAudio.play()
         .then(() => console.log("playing"))
-        .catch(err => console.log(err));
+        .catch(err => console.error(err));
 });
+
+    
+//      music = document.getElementById("bgmusic");
+
+// music.addEventListener("canplaythrough", () => {
+//     console.log("Audio loaded");
+//     alert("Audio loaded");
+// });
+
+// music.addEventListener("error", (e) => {
+//     console.log("Audio error", e);
+//     alert("Audio error");
+// });
+
+//     document.getElementById("seal").addEventListener("click", function () {
+//     music.play()
+//         .then(() => console.log("playing"))
+//         .catch(err => console.log(err));
+// });
     
 </script>
 
