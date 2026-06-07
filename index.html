@@ -1574,7 +1574,7 @@ document.getElementById("openInvite")
     weddingAudio.load();
 
     
-    seal.addEventListener("click", () => {
+    document.getElementById("sealBtn").addEventListener("click", () => {
     weddingAudio.play()
         .then(() => {console.log("playing");})
         .catch(error => {
