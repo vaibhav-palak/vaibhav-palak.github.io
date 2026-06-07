@@ -1584,6 +1584,13 @@ document.getElementById("openInvite")
         });
 });
 
+    weddingAudio.loop=true;
+    weddingAudio.addEventListener('ended', function() {
+        this.currentTime = 0;
+        this.play().catch(error => console.error("loop failed", error));
+    
+    });
+
     
 //      music = document.getElementById("bgmusic");
 
